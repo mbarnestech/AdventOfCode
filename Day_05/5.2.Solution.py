@@ -59,7 +59,9 @@ def next_range(input_file, input_ranges):
             sorted_output_ranges.append(destination)
     return sorted_output_ranges
 
-soil_ranges = next_range("5.SeedToSoil.txt", seed_ranges)
+iteration = 10
+print(f'{iteration}/{len(seed_ranges)}')
+soil_ranges = next_range("5.SeedToSoil.txt", [seed_ranges[iteration]])
 fertilizer_ranges = next_range("5.SoilToFertilizer.txt", soil_ranges)
 water_ranges = next_range("5.FertilizerToWater.txt", fertilizer_ranges)
 light_ranges = next_range("5.WaterToLight.txt", water_ranges)
@@ -67,4 +69,6 @@ temperature_ranges = next_range("5.LightToTemperature.txt", light_ranges)
 humidity_ranges = next_range("5.TemperatureToHumidity.txt", temperature_ranges)
 location_ranges = next_range("5.HumidityToLocation.txt", humidity_ranges)
 
-print(location_ranges)
+with open("5.Location.txt", "a") as file:
+    file.write(f"{iteration=}\n")
+    file.write(f"{location_ranges=}\n{min(location_ranges)=}\n")
