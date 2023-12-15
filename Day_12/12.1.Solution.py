@@ -165,3 +165,6 @@ print(total)
 
 # 8690 - Too high
 # 8172 - incorrect
+# 7895 - incorrect
+# 8017 - incorrect
+# 8270 - correct answer for someone else's puzzle
