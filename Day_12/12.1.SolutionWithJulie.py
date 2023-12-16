@@ -122,6 +122,8 @@ def getCount(spring, conditions, count):
     else:
         # for loop - for range(0, stopping point for that particular condition)
         stop = len(spring)-len(conditions)-sum(conditions)
+        if '#' in spring:
+            stop = min(stop, spring.index('#')+1)
         print(f'{spring=}, {conditions=}, {stop=}')
         # check regex to see if that point has a match
         for i in range(stop):
@@ -140,7 +142,7 @@ for i in range(len(springs)):
 # for i in range(900, 901):
     print(springs[i], conditions[i])
 
-    springs[i], conditions[i], count = reduce(springs[i], conditions[i], 0)
+    # springs[i], conditions[i], count = reduce(springs[i], conditions[i], 0)
     
     if conditions[i]:
         springs[i] = '.' + springs[i] + '.'
