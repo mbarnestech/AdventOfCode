@@ -99,6 +99,3 @@ for i in range(len(contraption[0])):
     total = max(total, subTotal)
 
 print(total)
-
-# 11534 - too high
-#  8098 - answer from part 1
